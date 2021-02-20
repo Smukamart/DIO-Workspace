@@ -1,0 +1,16 @@
+C:\Temp\ws-vs2021\AccountSolution\bin\Debug\net5.0\AccountSolution.exe
+C:\Temp\ws-vs2021\AccountSolution\bin\Debug\net5.0\AccountSolution.deps.json
+C:\Temp\ws-vs2021\AccountSolution\bin\Debug\net5.0\AccountSolution.runtimeconfig.json
+C:\Temp\ws-vs2021\AccountSolution\bin\Debug\net5.0\AccountSolution.runtimeconfig.dev.json
+C:\Temp\ws-vs2021\AccountSolution\bin\Debug\net5.0\AccountSolution.dll
+C:\Temp\ws-vs2021\AccountSolution\bin\Debug\net5.0\ref\AccountSolution.dll
+C:\Temp\ws-vs2021\AccountSolution\bin\Debug\net5.0\AccountSolution.pdb
+C:\Temp\ws-vs2021\AccountSolution\obj\Debug\net5.0\AccountSolution.csprojAssemblyReference.cache
+C:\Temp\ws-vs2021\AccountSolution\obj\Debug\net5.0\AccountSolution.GeneratedMSBuildEditorConfig.editorconfig
+C:\Temp\ws-vs2021\AccountSolution\obj\Debug\net5.0\AccountSolution.AssemblyInfoInputs.cache
+C:\Temp\ws-vs2021\AccountSolution\obj\Debug\net5.0\AccountSolution.AssemblyInfo.cs
+C:\Temp\ws-vs2021\AccountSolution\obj\Debug\net5.0\AccountSolution.csproj.CoreCompileInputs.cache
+C:\Temp\ws-vs2021\AccountSolution\obj\Debug\net5.0\AccountSolution.dll
+C:\Temp\ws-vs2021\AccountSolution\obj\Debug\net5.0\ref\AccountSolution.dll
+C:\Temp\ws-vs2021\AccountSolution\obj\Debug\net5.0\AccountSolution.pdb
+C:\Temp\ws-vs2021\AccountSolution\obj\Debug\net5.0\AccountSolution.genruntimeconfig.cache
