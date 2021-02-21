@@ -50,7 +50,9 @@ namespace AccountSolution
             }
             catch (DomainException e)
             {
+                Console.WriteLine();
                 Console.WriteLine(e.Message);
+                Console.Read();
             }
         }
 
@@ -77,20 +79,33 @@ namespace AccountSolution
             Console.WriteLine();
             Console.Write("Numero Da Conta: ");
             int id = int.Parse(Console.ReadLine());
+            int contConta = 0;
+            foreach (var item in contasBancarias)
+            {
+                if (item.Id == id)
+                {
+                    contConta++;
+                }
+            }
+            if (contConta != 0)
+            {
+                throw new DomainException("Conta Já Existente");
+            }
             Console.Write("Tipo De Conta(Digite 1 para pessoa Fisica ou 2 para pessoa juridica): ");
             TipoDeConta tipo = Enum.Parse<TipoDeConta>(Console.ReadLine());
             if (tipo != TipoDeConta.Fisica && tipo != TipoDeConta.Juridica)
             {
                 throw new DomainException("Tipo de Conta inválido");
             }
-            Console.Write("Nome e Sobrenome: ");
+            Console.Write("Nome: ");
             string nome = Console.ReadLine();
-            Console.Write("Saldo: ");
+            Console.Write("Saldo Inicial: ");
             double saldo = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             Console.Write("Limite de Crédito Desejado: ");
             double credito = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             ContaBancaria conta = new ContaBancaria(id, tipo, nome, saldo, credito);
             contasBancarias.Add(conta);
+            Console.WriteLine();
             Console.WriteLine("Conta Adicionada com sucesso.");
             Console.WriteLine();
             IniciaPrograma();
@@ -111,6 +126,18 @@ namespace AccountSolution
             Console.WriteLine();
             Console.Write("Digite o numero da Conta de Destino: ");
             int num = int.Parse(Console.ReadLine());
+            int contConta = 0;
+            foreach (var item in contasBancarias)
+            {
+                if (item.Id == num)
+                {
+                    contConta++;
+                }
+            }
+            if (contConta == 0)
+            {
+                throw new DomainException("Conta Inexistente");
+            }
             Console.Write("Digite o Valor do Depósito: ");
             double valor = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             foreach (var item in contasBancarias)
@@ -118,11 +145,10 @@ namespace AccountSolution
                 if (item.Id == num)
                 {
                     item.Deposito(valor);
+                    Console.WriteLine();
                     Console.WriteLine("Depósito efetuado com sucesso.");
                 }
             }
-            Console.WriteLine("Conta Inexistente, Depósito Não Efetuado");
-
             IniciaPrograma();
         }
 
@@ -131,6 +157,18 @@ namespace AccountSolution
             Console.WriteLine();
             Console.Write("Digite o numero da Conta: ");
             int num = int.Parse(Console.ReadLine());
+            int contConta = 0;
+            foreach (var item in contasBancarias)
+            {
+                if (item.Id == num)
+                {
+                    contConta++;
+                }
+            }
+            if (contConta == 0)
+            {
+                throw new DomainException("Conta Inexistente");
+            }
             Console.Write("Digite o Valor do Saque: ");
             double valor = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             foreach (var item in contasBancarias)
@@ -138,11 +176,8 @@ namespace AccountSolution
                 if (item.Id == num)
                 {
                     item.Saque(valor);
+                    Console.WriteLine();
                     Console.WriteLine("Saque efetuado com sucesso.");
-                }
-                else
-                {
-                    Console.WriteLine("Conta Inexistente, Saque Não Efetuado");
                 }
             }
             IniciaPrograma();
@@ -153,8 +188,36 @@ namespace AccountSolution
             Console.WriteLine();
             Console.Write("Digite o Numero Da Conta De Origem: ");
             int contOrigem = int.Parse(Console.ReadLine());
+            int contConta = 0;
+            foreach (var item in contasBancarias)
+            {
+                if (item.Id == contOrigem)
+                {
+                    contConta++;
+                }
+            }
+            if (contConta == 0)
+            {
+                throw new DomainException("Conta Inexistente");
+            }
             Console.Write("Digite o Numero Da Conta de Destino: ");
             int contDestino = int.Parse(Console.ReadLine());
+            contConta = 0;
+            foreach (var item in contasBancarias)
+            {
+                if (item.Id == contOrigem)
+                {
+                    contConta++;
+                }
+            }
+            if (contConta == 0)
+            {
+                throw new DomainException("Conta Inexistente");
+            }
+            if (contOrigem == contDestino)
+            {
+                throw new DomainException("Numero da Conta de Origem é Igual ao da Conta de destino.");
+            }
             Console.Write("Valor a Trasnferir: ");
             double valor = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             ContaBancaria origem = null;

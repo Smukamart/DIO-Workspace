@@ -9,7 +9,8 @@ namespace AccountSolution
         private TipoDeConta TipoDeConta { get; set; }
         private string Nome { get; set; }
         private double Saldo { get; set; }
-        private double Credito { get; set; }
+        public double Credito { get; private set; }
+        public double LimiteInicial { get; set; }
 
         public ContaBancaria()
         {
@@ -22,11 +23,24 @@ namespace AccountSolution
             Nome = nome;
             Saldo = saldo;
             Credito = credito;
+            LimiteInicial = credito;
         }
 
         public void Deposito(double valor)
         {
-            Saldo += valor;
+            double valorACompletar = 0;
+            if (LimiteInicial > Credito)
+            {
+                valorACompletar = LimiteInicial - Credito;
+                valor -= valorACompletar;
+                Credito += valorACompletar;
+                Saldo = 0;
+                Saldo += valor;
+            }
+            else
+            {
+                Saldo += valor;
+            }
         }
 
         public void Saque(double valor)
