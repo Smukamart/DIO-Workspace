@@ -234,6 +234,8 @@ namespace AccountSolution
                 }
             }
             origem.Transferencia(origem, destino, valor);
+            Console.WriteLine();
+            Console.WriteLine("Transferência Realizada com sucesso!!!");
             IniciaPrograma();
         }
     }
